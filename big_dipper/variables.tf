@@ -2,17 +2,9 @@
 variable "mso_username" {
   type = string
 }
-# variable "mso_password" {
-#   default = "SanFran1234!"
-# }
-# variable "mso_url" {
-#   default = "https://10.1.106.35/"
-# }
-
 variable "mso_password" {
   type = string
 }
-
 variable "mso_url" {
   type = string
 }
