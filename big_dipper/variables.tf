@@ -3,10 +3,10 @@ variable "username" {
   default = "admin"
 }
 variable "password" {
-  default = "SanFran1234!"
+  default = "PASSWORD"
 }
 variable "url" {
-  default = "https://10.1.106.35/"
+  default = "URL"
 }
 
 # Site IDs can be found using the Swagger documentation at MSO
