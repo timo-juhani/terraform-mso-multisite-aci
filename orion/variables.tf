@@ -1,11 +1,11 @@
-variable "username" {
-  default = "admin"
+variable "mso_username" {
+  type = string
 }
-variable "password" {
-  default = "YOUR PASSWORD"
+variable "mso_password" {
+  type = string
 }
-variable "url" {
-  default = "YOUR URL"
+variable "mso_url" {
+  type = string
 }
 variable "site1_id" {
   default = "5ee1d973120000f732f3b38f"

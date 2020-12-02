@@ -1,12 +1,11 @@
 # Remember to run Terraform with a tag -parallelism=1
+# NOTE: site id is not the same as site name and it can be found with Swagger
 
 resource "mso_tenant" "tenant1" {
   name         = var.tenant1
   display_name = var.tenant1
   description  = "Created by Terraform!"
   site_associations {
-    # NOTE: site id is not the same as site name 
-    #       and it can be found with Swagger
     site_id = var.site1_id
   }
 }
