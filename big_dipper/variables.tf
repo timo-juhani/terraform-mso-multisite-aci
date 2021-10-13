@@ -9,10 +9,18 @@ variable "mso_url" {
   type = string
 }
 
-# Site IDs can be found using the Swagger documentation at MSO
-variable "site1_id" {
-  default = "5f9ac0371100001703b9d6c0"
+variable "site1_name" {
+  default = "acisim-site1"
 }
+
+variable "site2_name" {
+  default = "acisim-site2"
+}
+
+# Site IDs can be found using the Swagger documentation at MSO
+#variable "site1_id" {
+#  default = "61602979e53749d6495f7c2d"
+#}
 
 # One tenant to map all application components in the same place
 variable "tenant" {

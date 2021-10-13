@@ -11,7 +11,7 @@ variable "mso_url" {
 
 # Site IDs can be found using the Swagger documentation at MSO
 variable "site1_id" {
-  default = "5f9ac0371100001703b9d6c0"
+  default = "61602979e53749d6495f7c2d"
 }
 
 # One tenant to map all application components in the same place
