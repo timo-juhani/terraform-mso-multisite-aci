@@ -1,3 +1,6 @@
+# Author: Timo-Juhani Karjalainen, tkarjala@cisco.com, Cisco CX
+# Variable definitions for MSO schema.
+  
 # variable "site1_name" {
 #   type        = string
 #   description = "Name of the ACI Site 1"

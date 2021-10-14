@@ -39,9 +39,18 @@ module "create_schema" {
   site2_template     = "big-dipper-site2"
 }
 
-# module "intersite_template" {
-#   source = "./intersite_template"
-# }
+module "create_intersite_template" {
+  source             = "./modules/intersite_template"
+  intersite_template = "big-dipper-intersite"
+  ap_intersite       = "big-dipper-intersite-ap"
+  epg_intersite      = "big-dipper-intersite-gw-epg"
+  vrf_intersite      = "big-dipper-intersite-vrf"
+  bd_intersite       = "big-dipper-intersite-bd"
+  c_permit_all_site1 = "big-dipper-site1-contract"
+  c_permit_all_site2 = "big-dipper-site2-contract"
+  f_permit_all       = "big-dipper-permit-all"
+  schema_id          = module.create_schema.schema_id
+}
 
 # module "site1_template" {
 #   source = "./site1_template"
