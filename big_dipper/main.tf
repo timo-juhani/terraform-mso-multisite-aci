@@ -64,9 +64,17 @@ module "create_site1_template" {
   intersite_vrf      = module.create_intersite_template.intersite_vrf
 }
 
-# module "site2_template" {
-#   source = "./site2_template"
-# }
+module "create_site2_template" {
+  source             = "./modules/site_template"
+  ap                 = "big-dipper-site2-ap"
+  epg                = "big-dipper-site2-epg"
+  bd                 = "big-dipper-site2-bd"
+  template           = module.create_schema.site2_template
+  intersite_template = module.create_schema.intersite_template
+  schema_id          = module.create_schema.schema_id
+  site_contract      = module.create_intersite_template.site2_contract
+  intersite_vrf      = module.create_intersite_template.intersite_vrf
+}
 
 # module "deploy" {
 #   source = "./deploy"
