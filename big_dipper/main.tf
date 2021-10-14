@@ -41,7 +41,6 @@ module "create_schema" {
 
 module "create_intersite_template" {
   source             = "./modules/intersite_template"
-  intersite_template = "big-dipper-intersite"
   ap_intersite       = "big-dipper-intersite-ap"
   epg_intersite      = "big-dipper-intersite-gw-epg"
   vrf_intersite      = "big-dipper-intersite-vrf"
@@ -50,11 +49,20 @@ module "create_intersite_template" {
   c_permit_all_site2 = "big-dipper-site2-contract"
   f_permit_all       = "big-dipper-permit-all"
   schema_id          = module.create_schema.schema_id
+  intersite_template = module.create_schema.intersite_template
 }
 
-# module "site1_template" {
-#   source = "./site1_template"
-# }
+module "create_site1_template" {
+  source             = "./modules/site_template"
+  ap                 = "big-dipper-site1-ap"
+  epg                = "big-dipper-site1-epg"
+  bd                 = "big-dipper-site1-bd"
+  template           = module.create_schema.site1_template
+  intersite_template = module.create_schema.intersite_template
+  schema_id          = module.create_schema.schema_id
+  site_contract      = module.create_intersite_template.site1_contract
+  intersite_vrf      = module.create_intersite_template.intersite_vrf
+}
 
 # module "site2_template" {
 #   source = "./site2_template"

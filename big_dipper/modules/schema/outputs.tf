@@ -17,3 +17,18 @@ output "schema_id" {
   description = "The ID of the MSO schema created."
   value       = mso_schema.schema.id
 }
+
+output "intersite_template" {
+  description = "The name of the Intersite template."
+  value       = mso_schema.schema.template_name
+}
+
+output "site1_template" {
+  description = "The name of the Site 1 template."
+  value       = mso_schema_template.site1_template.name
+}
+
+output "site2_template" {
+  description = "The name of the Site 2 template."
+  value       = mso_schema_template.site2_template.name
+}
