@@ -76,6 +76,10 @@ module "create_site2_template" {
   intersite_vrf      = module.create_intersite_template.intersite_vrf
 }
 
-# module "deploy" {
-#   source = "./deploy"
-# }
+module "deploy" {
+  source             = "./modules/deploy"
+  schema_id          = module.create_schema.schema_id
+  site_id            = module.create_schema.aci-site-id
+  intersite_template = module.create_schema.intersite_template
+  site_template      = module.create_schema.site2_template
+}

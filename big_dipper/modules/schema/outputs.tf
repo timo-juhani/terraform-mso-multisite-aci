@@ -8,7 +8,7 @@
 # }
 
 # Prints the current site ID of Site 2 allocated by MSO
-output "aci-site2-id" {
+output "aci-site-id" {
   description = "ACI Site 2's API ID allocated by MSO"
   value       = data.mso_site.site2.id
 }
