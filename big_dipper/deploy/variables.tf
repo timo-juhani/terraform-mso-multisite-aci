@@ -1,4 +1,4 @@
-
+# MSO crendentials
 variable "mso_username" {
   default = "admin"
 }

@@ -17,11 +17,6 @@ variable "site2_name" {
   default = "acisim-site2"
 }
 
-# Site IDs can be found using the Swagger documentation at MSO
-#variable "site1_id" {
-#  default = "61602979e53749d6495f7c2d"
-#}
-
 # One tenant to map all application components in the same place
 variable "tenant" {
   default = "big-dipper"
