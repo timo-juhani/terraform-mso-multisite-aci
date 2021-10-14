@@ -2,6 +2,13 @@
 # Description: a demo Terraform file to that declares a sample ACI Multi-Site
 # network.
 
+terraform {
+  required_providers {
+    mso = {
+      source = "CiscoDevNet/mso"
+    }
+  }
+}
 
 ################################################################################
 # Information Gathering
