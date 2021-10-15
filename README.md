@@ -18,3 +18,38 @@ To start terraforming your networks:
 - Finally if you want to delete your configuration run terraform destroy
 
 Terraform tracks the state of the infrastructure and thus only provisions what has changed.
+
+### On Current MSO Provider 
+
+Provider: ciscodevnet/mso 0.3.1
+
+It works best when run with parallelism=1 tag. The reason for this seems to be 
+that TF likes to deal with flat data structures whereas ACI's data model is 
+highly hierarchical. Normally TF would like to run 10 concurrent tasks at the 
+same time, which seems to produce issues when using the current version of MSO
+provider. The data model TF sees is quite complex and if your run multiple 
+things at the same time, no wonder why things break. See the graph.svg of the 
+data model provider wants to create if you don't believe otherwise. 
+
+You can set parallelism to 1 evrytime you issue TF commands, but this get
+tedious after some time.
+
+```
+terraform apply -parallelism=1
+```
+
+You will be better of by simply defining the following environmental variables 
+to your .bashrc or .profile so that the tag is included automatically when 
+issuing plan, apply or destroy command.
+
+Environmental Variable Definitions:
+```
+export TF_CLI_ARGS_apply="-parallelism=1"
+export TF_CLI_ARGS_plan="-parallelism=1"
+export TF_CLI_ARGS_destroy="-parallelism=1"
+```
+
+Remember to update the settings by:
+```
+source ~/.bashrc (or .profile)
+```
