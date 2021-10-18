@@ -92,7 +92,7 @@ module "create_dpc_e12" {
   ep            = "big-dipper-site2-epg"
   pod           = "pod-1"
   leaf          = "101"
-  path          = "eth1/12"
+  path          = "leo-server-2"
   vlan_id       = 100
 }
 
@@ -106,7 +106,7 @@ module "create_dpc_e13" {
   ep            = "big-dipper-site2-epg"
   pod           = "pod-1"
   leaf          = "101"
-  path          = "eth1/13"
+  path          = "leo-server-2"
   vlan_id       = 100
 }
 
@@ -124,7 +124,7 @@ module "create_vpc_e14" {
   ep            = "big-dipper-site2-epg"
   pod           = "pod-1"
   leaf          = "101"
-  path          = "eth1/14"
+  path          = "leo-server-1"
   vlan_id       = 100
 }
 
@@ -138,6 +138,6 @@ module "create_vpc_e15" {
   ep            = "big-dipper-site2-epg"
   pod           = "pod-1"
   leaf          = "102"
-  path          = "eth1/15"
+  path          = "leo-server-1"
   vlan_id       = 100
 }
