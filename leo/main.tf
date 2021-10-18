@@ -30,7 +30,8 @@ provider "mso" {
 # Create Ports
 ################################################################################
 
-module "create_acess_port" {
+# Access port to e10
+module "create_ap_e10" {
   source        = "./modules/create_access_port"
   site_name     = "acisim-site2"
   schema_name   = "ms-big-dipper"
@@ -41,5 +42,20 @@ module "create_acess_port" {
   pod           = "pod-1"
   leaf          = "101"
   path          = "eth1/10"
+  vlan_id       = 100
+}
+
+# Access port to e11
+module "create_ap_e11" {
+  source        = "./modules/create_access_port"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  domain        = "leo-static"
+  pod           = "pod-1"
+  leaf          = "101"
+  path          = "eth1/11"
   vlan_id       = 100
 }
