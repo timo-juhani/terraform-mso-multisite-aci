@@ -25,9 +25,12 @@ provider "mso" {
 }
 
 
+# WARNING! Before configuring anything on Tenants make sure to confirm that
+# the Fabric Access Policy is up to date.
+
 
 ################################################################################
-# Add a domain to EPG and create ports
+# Add a domain to EPG
 ################################################################################
 
 # Add domain to EPG
@@ -41,7 +44,11 @@ module "add_leo_static_domain" {
   ep            = "big-dipper-site2-epg"
   domain        = "leo-static"
 }
- 
+
+################################################################################
+# Add access ports
+################################################################################
+
 # Access port to e10
 module "create_ap_e10" {
   source        = "./modules/create_access_port"
@@ -67,5 +74,70 @@ module "create_ap_e11" {
   pod           = "pod-1"
   leaf          = "101"
   path          = "eth1/11"
+  vlan_id       = 100
+}
+
+################################################################################
+# Add portchannel ports
+################################################################################
+
+
+# Port-Channel port to e12
+module "create_dpc_e12" {
+  source        = "./modules/create_direct_portchannel"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  pod           = "pod-1"
+  leaf          = "101"
+  path          = "eth1/12"
+  vlan_id       = 100
+}
+
+# Port-Channel port to e13
+module "create_dpc_e13" {
+  source        = "./modules/create_direct_portchannel"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  pod           = "pod-1"
+  leaf          = "101"
+  path          = "eth1/13"
+  vlan_id       = 100
+}
+
+################################################################################
+# Add VPC ports
+################################################################################
+
+# Port-Channel port to e14
+module "create_vpc_e14" {
+  source        = "./modules/create_virtual_portchannel"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  pod           = "pod-1"
+  leaf          = "101"
+  path          = "eth1/14"
+  vlan_id       = 100
+}
+
+# Port-Channel port to e15
+module "create_vpc_e15" {
+  source        = "./modules/create_virtual_portchannel"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  pod           = "pod-1"
+  leaf          = "101"
+  path          = "eth1/15"
   vlan_id       = 100
 }
