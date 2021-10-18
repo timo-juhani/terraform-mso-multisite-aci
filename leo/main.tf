@@ -137,7 +137,7 @@ module "create_vpc_e15" {
   ap            = "big-dipper-site2-ap"
   ep            = "big-dipper-site2-epg"
   pod           = "pod-1"
-  leaf          = "101"
+  leaf          = "102"
   path          = "eth1/15"
   vlan_id       = 100
 }
