@@ -29,20 +29,18 @@ data "mso_schema" "schema" {
 # Create Access Port
 ################################################################################
 
-# Create stict port assocation
+# Create domain assocation
 # NOTE: remember that ACI site must have this access policy first!
 
-resource "mso_schema_site_anp_epg_static_port" "static_port" {
+resource "mso_schema_site_anp_epg_domain" "domain" {
   template_name        = var.template_name
   anp_name             = var.ap
   epg_name             = var.ep
-  path_type            = "port"
-  deployment_immediacy = "immediate"
-  pod                  = var.pod
-  leaf                 = var.leaf
-  path                 = var.path
-  vlan                 = var.vlan_id
-  mode                 = "untagged"
+  domain_type          = "physicalDomain"
+  dn                   = var.domain
+  deploy_immediacy     = "immediate"
+  resolution_immediacy = "immediate"
+  vlan_encap_mode      = "static"
   schema_id            = data.mso_schema.schema.id
   site_id              = data.mso_site.site.id
 }

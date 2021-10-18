@@ -27,9 +27,21 @@ provider "mso" {
 
 
 ################################################################################
-# Create Ports
+# Add a domain to EPG and create ports
 ################################################################################
 
+# Add domain to EPG
+
+module "add_leo_static_domain" {
+  source        = "./modules/add_domain"
+  site_name     = "acisim-site2"
+  schema_name   = "ms-big-dipper"
+  template_name = "big-dipper-site2"
+  ap            = "big-dipper-site2-ap"
+  ep            = "big-dipper-site2-epg"
+  domain        = "leo-static"
+}
+ 
 # Access port to e10
 module "create_ap_e10" {
   source        = "./modules/create_access_port"
@@ -38,7 +50,6 @@ module "create_ap_e10" {
   template_name = "big-dipper-site2"
   ap            = "big-dipper-site2-ap"
   ep            = "big-dipper-site2-epg"
-  domain        = "leo-static"
   pod           = "pod-1"
   leaf          = "101"
   path          = "eth1/10"
@@ -53,7 +64,6 @@ module "create_ap_e11" {
   template_name = "big-dipper-site2"
   ap            = "big-dipper-site2-ap"
   ep            = "big-dipper-site2-epg"
-  domain        = "leo-static"
   pod           = "pod-1"
   leaf          = "101"
   path          = "eth1/11"

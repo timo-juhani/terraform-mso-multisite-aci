@@ -25,22 +25,8 @@ variable "ep" {
   type        = string
   description = "The name of the EPG."
 }
-variable "pod" {
-  type        = string
-  description = "The POD name."
-}
 
-variable "leaf" {
+variable "domain" {
   type        = string
-  description = "The name of leaf."
-}
-
-variable "path" {
-  type        = string
-  description = "The selector path."
-}
-
-variable "vlan_id" {
-  type        = string
-  description = "The VLAN ID."
+  description = "The name of the domain."
 }
