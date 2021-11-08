@@ -54,6 +54,7 @@ jobs:
   big_dipper:
     name: "Big Dipper"
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     defaults:
       run:
         shell: bash
