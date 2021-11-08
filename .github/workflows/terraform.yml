@@ -42,7 +42,7 @@
 #       with:
 #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-name: "Terraform"
+name: "MSO Configuration Tests"
 
 on:
   push:
@@ -54,9 +54,6 @@ jobs:
   big_dipper:
     name: "Big Dipper"
     runs-on: ubuntu-latest
-    environment: production
-
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
       run:
         shell: bash
