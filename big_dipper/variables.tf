@@ -7,11 +7,11 @@ variable "mso_url" {
 }
 
 variable "mso_username" {
-  type = string
+  type        = string
   description = "Username of the MSO admin user"
 }
 
 variable "mso_password" {
-    type = string
-    description = "Password of the MSO admin user"
+  type        = string
+  description = "Password of the MSO admin user"
 }
