@@ -79,9 +79,13 @@ jobs:
       - name: Terraform Format
         run: terraform fmt -check
 
-      # Generates an execution plan for Terraform
-      - name: Terraform Plan
-        run: terraform plan
+      # Validates that the configuration is valid
+      - name: Terraform Validate
+        run: terraform validate
+
+      # # Generates an execution plan for Terraform
+      # - name: Terraform Plan
+      #   run: terraform plan
 
   # leo:
   #   name: "Leo"
