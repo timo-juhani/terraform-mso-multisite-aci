@@ -58,7 +58,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./big_dipper
+        working-directory: ./modules/big_dipper
 
     steps:
       # Checkout the repository to the GitHub Actions runner
@@ -94,7 +94,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./leo
+        working-directory: ./modules/leo
 
     steps:
       # Checkout the repository to the GitHub Actions runner
